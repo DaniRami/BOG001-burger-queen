@@ -5,7 +5,7 @@ const Total = ({total}) => {
         
          <div className="Total">
         <button className="total">Total</button>
-         <input className="input-total" type="text"  name="number"placeholder="$" value={total}/>
+         <input className="input-total" type="text"  name="number"placeholder="$" value={`$ ${total}`}/>
         </div>
         
     )

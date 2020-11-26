@@ -26,4 +26,4 @@ const Extras = ({extras, checkExtra}) => {
     )
 }
 
-export default Extras
+export default Extras;

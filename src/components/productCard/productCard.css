@@ -1,23 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Prociono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pridi&display=swap");
 
-body {
-  
-  background-image: url("../../assets/images/fondo1.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: right bottom;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
+ 
 
 .title {
   margin-top: 0px;
 }
 .prin-target {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
   justify-content: space-around;
   background-color: rgba(24, 22, 22, 0.829);
@@ -40,7 +31,7 @@ body {
   width:15px;
 }
 
-.prin-target::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+.prin-target::-webkit-scrollbar-button:increment,.prin-target::-webkit-scrollbar-button {
   display: none;
 } 
 
@@ -52,8 +43,9 @@ body {
   border: 2px solid #797979c4;
 }
 
-.prin-target::-webkit-scrollbar-track {
+.prin-target::-webkit-scrollbar-track  {
   border-radius: 10px;  
+   
 }
  
 .btn {
@@ -72,19 +64,13 @@ body {
 }
  
  
-.btn:hover { background: #F8F272; } 
-/* .day {
-  background-color: #dbb957;
-  border: #c4ad83 3px solid;
-  box-shadow: 2px 2px 2px 1px rgba(196, 173, 131, 0.4);
-  border-radius: 15px;
-  font-family: "Pridi", serif;
-  font-size: 24px;
-  text-align: center;
-  margin-top: 25px;
-  width: 100%;
-  height: 40px;
-} */
+.btn:hover {
+  background:  #c29e5bef ;
+  border: #dbb957 2px solid;
+} 
+.btn:focus{
+  outline:0px;
+}
 .target {
   display: inline-block;
   color: black;
@@ -108,7 +94,7 @@ body {
   margin-top: 6px;
   border: #dbb957 3px solid;
   border-radius: 5px;
-  text-align: center;
+  margin-left: 30px;
 }
 
 .product {

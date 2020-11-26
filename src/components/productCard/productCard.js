@@ -1,6 +1,6 @@
 import "../productCard/productCard.css";
-import React, { useState } from 'react';
-import Modal from "../../components/ventanas/modal"
+// import React, { useState} from 'react';
+ 
  
  
 
@@ -9,27 +9,30 @@ const ProductCard =  (props) => {
   
  
  
-  const[show, setshow] = useState(false)
-  const closeModalHander = () => setshow(false) 
+  // const[show, setshow] = useState(false)
+  // const closeModalHander = () => setshow(false) 
    
- 
-  // const [resumen, setResumen] = useState([])  
-  // setResumen([
-  //   ...resumen,
-  // ])
-  // const addProducto = (item) => {
-  //   const precioProducto = parseInt( item.price);
-  //   const nombreProducto = item.name;
-  //   const idProducto = item.id;
-  //   const countProducto = item.quantity; 
-  //   resumen.push({idProducto, nombreProducto, precioProducto, countProducto})
+
+// const [state, setState] = useState({
+//   visible: false
+// }) 
+
+// let showModal = () => {
+// setState({
+//   visible: true
+// });
+// };
+
+
+   
+   
      
    
   const addProduct = props.addProduct
    
   return (
   
-    <div className="target" onClick={() => addProduct(props.productItem)}>
+    <div className="target"  onClick={() => addProduct(props.productItem)}>
         <img
           className="img-product"
           src={
@@ -40,20 +43,21 @@ const ProductCard =  (props) => {
         <h1 className="product">{props.productItem.name}</h1>
         <h2 className="product">{'$ ' + props.productItem.price}</h2>
      
-         <img
+         {/* <img
           className="mas"      
         
-          onClick={() => setshow(true)}  
+          onClick={showModal}  
            
            src={
             require(`../../assets/images/${props.productItem.img}`).default
           }
           alt={"icono de mas"}
-      />
-         <Modal show={show}  close={closeModalHander}/> 
+      /> */}
+         
        
-        
+          
     </div>
+    
   );
 };
 

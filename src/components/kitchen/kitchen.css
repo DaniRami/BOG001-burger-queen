@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Rakkas&display=swap");
+
+.targue-kitchen{
+    display: flex;
+    display: grid;
+    grid-template-rows: 1fr 1fr 2fr;
+    background-color: rgba(24, 22, 22, 0.829);
+    justify-content: space-around;
+    text-align: center;
+    align-content: center;
+    border-radius: 10px;
+    border: #dbb957 1px solid;
+    width: 20%;
+    height: 200px;
+    padding: 40px;
+    margin-top: 105px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+      
+}
+.table-customer{
+  text-align: center;
+  color: #000000;
+  font-family: "Rakkas", cursive;
+  font-size: 28px;
+  -webkit-text-stroke: 1px #dbb957;
+}
+
+.input-status{
+  width: 100%;
+  height: 30px;
+  font-size: 16px;
+  color: #c4ad83;
+  background-color: rgba(0, 0, 0, 0.959);
+  border: 1px solid #dbb957; 
+  margin-bottom: 8px;
+}
+.targue-kitchen2{
+    display: flex;
+    display: grid;
+    grid-template-rows: 1fr 1fr ;
+    background-color: #c4ad839a;
+    text-align: center;
+    align-content: center;
+    border-radius: 10px;
+    border: #dbb957 1px solid;
+    width: 150%;
+    height: 170px;
+    margin-bottom: 30px;
+    margin-left: -56px;
+    overflow: auto;  
+}
+
+.order-targue{
+    color: #000000;
+    font-family: "Rakkas", cursive;
+    font-size: 18px;
+}     
+.time{
+    color: #000000;
+    font-family: "Rakkas", cursive;
+    font-size: 18px;  
+    margin-right: 12px;
+}

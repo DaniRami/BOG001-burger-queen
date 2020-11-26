@@ -7,16 +7,24 @@ import Table from "../components/orderCard/table"
 import Titles from "../components/orderCard/titles"
 import Total from "../components/orderCard/total"
 import Customer from "../components/orderCard/customer"
+import Modall from "../components/ventanas/modal"
+// import{firebase}  from"../firebase"
+// import { db } from '../firebase'
 import { toast, Slide } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+ 
 toast.configure() 
  
  
-const Menu = () => {
+const Menu = ({item, carrito, addProducto }) => {
    
-  const [state,  statecurrent] = useState('Day');
+  const [state,  statecurrent] = useState('Drinks');
+  const[extras, setExtras] = useState('Burguers')
+
 
   const initialValues = {
     table: '',
+    customer:'',
     items: [],
     date: new Date(), 
     status: 'in progress'
@@ -31,7 +39,7 @@ const Menu = () => {
 
   const addProduct = (product) => {
     if (order.items.find(item => item.id === product.id)) {
-       // order.items.map( item => item.id === product.id )
+        console.log()
     } else{
         setOrder({
             ...order,
@@ -72,7 +80,7 @@ const addTotal = order.items.reduce((result, item) => {
 }, 0)
 
 const saveOrder = async() =>{
-  if(order.items.length >0 && order.table <= 0){
+  if(order.items.length > 0 && order.table <= 0){
       toast.warn('Por favor asigna la mesa', {
           className: "rounder-edges",
           position: "top-center",
@@ -80,6 +88,14 @@ const saveOrder = async() =>{
           hideProgressBar: true,
           transition: Slide
           });
+ }else if(order.items.length > 0 && order.customer <= 0){
+            toast.warn('Por favor agrega nombre del cliente 🍔', {
+                className: "rounder-edges",
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                transition: Slide
+                });
   }else if(order.items.length === 0 && order.table >= 1){
       toast.warn('Agrega al menos un producto a la orden 🍔', {
           className: "rounder-edges",
@@ -88,28 +104,28 @@ const saveOrder = async() =>{
           hideProgressBar: true,
           transition: Slide
           });
-  }else if (order.items.length === 0 && order.table <= 0){
+}else if (order.items.length === 0 && order.table <= 0){
       toast.warn('Asigna la mesa y productos a la orden 🍔🍟', {
           className: "rounder-edges",
           position: "top-center",
           autoClose: 4000,
           hideProgressBar: true,
-          transition: Slide
+           transition: Slide
           });
-  // }else{
-  //     await db
-  //     .collection('orders')
-  //     .add(order)
-  //     setOrder({...initialValues})
-  //     toast.succe ss('Pedido enviado a cocina! ✨', {
-  //         className: "rounder-edges",
-  //         position: "top-center",
-  //         autoClose: 4000,
-  //         hideProgressBar: true,
-  //         transition: Slide
-  //         });
+//   }else{
+//       await firebase
+//       .collection('orders')
+//       .add(order)
+//       setOrder({...initialValues})
+//       toast.success('Pedido enviado a cocina! ✨', {
+//           className: "rounder-edges",
+//           position: "top-center",
+//           autoClose: 4000,
+//           hideProgressBar: true,
+//           transition: Slide
+//           });
+        }
     }
-}
   
    
   return (
@@ -120,31 +136,51 @@ const saveOrder = async() =>{
     <div className="prin-target">
       
        
+    <Button   value ='Burguers'   mostaza   onClick={() => { setExtras('Burguers')}} />
+      <Button  value ='Breakfast'   mostaza onClick={() => { statecurrent('Breakfast')}}/>
+      <Button  value ='Drinks'    mostaza onClick={() =>  {statecurrent('Drinks')} }/>
        
-      <Button  value ='Breakfast'   mostaza onClick={() => { statecurrent('Breakfast')} 
-            }/>
-      <Button  value ='Day'    mostaza onClick={() =>  {statecurrent('Day')} }/>
-
+       
      <>
-     {state ==="Day"?
+     {state ==="Drinks"?
      <>
        
-        {dataMenu.filter(item => item.type === 2).map(product => <ProductCard productItem={product} key={product.id}  addProduct={addProduct} /> )}
+        {dataMenu.filter(item => item.type === 2).map(product => <ProductCard productItem={product} key={product.id}     addProduct={addProduct} /> )}
          
         </>:
             <>   
 
             {dataMenu.filter(item => item.type === 1).map(product => <ProductCard productItem={product} key={product.id}  addProduct={addProduct} /> )}
             </>
+ 
+            
             }
         </> 
-          
+        
+        <>
+     {extras ==="Burguers"?
+     <>
+       
+        {dataMenu.filter(item => item.type === 0).map(product => <ProductCard productItem={product} key={product.id}     addProduct={addProduct} /> )}
+         
+        </>:
+            <>   
+  {console.log("hola")}
+             
+            </>
+ 
+            
+            }
+        </> 
+        
+             
+        
            </div>
 
            <div className="order-div">
-           <Table setTable={setTable} />
            <Customer/>
-           <Titles/>
+           <Table setTable={setTable} />
+            <Titles/>
            
            {order.items.length === 0 ? ( <div className="center-align"> No hay productos en la order</div> ) : ( order.items.map(elem =>
                 <OrderCard
@@ -158,14 +194,14 @@ const saveOrder = async() =>{
                 />
             ) )}
 
-          <Total addTotal={addTotal}/>
+          <Total total={addTotal}/>
                <div className="buttons">
                <button className="cancel">Cancel</button>
-              <button className="send" saveOrder={saveOrder}>Send</button> 
+              <button className="send"  onClick={saveOrder}>Send</button> 
           </div>
            
           
-            
+          
            </div>
             
      
