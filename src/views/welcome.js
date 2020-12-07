@@ -1,9 +1,8 @@
 import React from 'react';
 import Home from '../components/welcome/homewelcome'
- 
-
 
 const   Welcome = () =>{
+    //console.log(getOrder())
     return(
         <div className="div-body" >
        <h1 className="title-burger">Burguer Queen</h1>
