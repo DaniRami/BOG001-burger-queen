@@ -16,17 +16,18 @@ import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
 
 
-const Menu = ({total} ) => {
+const Menu = ( ) => {
 
   const [state,  statecurrent] = useState({type: 0});
-  
+   
+
   const initialValues = {
     table: '',
     customer:'',
     items: [],
-    total: total,
+    total: 0,
     quantity:0,
-    date: moment().format('hh-mm-ss'),
+    date: "",
     timeStart: "",
     timeEnd: "",
     status: 'in progress'
@@ -92,7 +93,7 @@ const addQuantity = (id, quantity) => {
 }
 
   
- const addTotal = order.items.reduce((result, item) => {
+const addTotal = order.items.reduce((result, item) => {
 return result + item.price * item.quantity  
 
 }, 0)
@@ -133,6 +134,8 @@ const saveOrder = async() =>{
           });
   }
   else{
+      order.total = addTotal
+      order.date = moment().format('hh-mm-ss')
       createOrder(order)
       setOrder({...initialValues})
       toast.success('Pedido enviado a cocina! ✨', {

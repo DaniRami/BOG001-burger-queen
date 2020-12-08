@@ -1,11 +1,10 @@
 import "../kitchen/kitchen.css";
 import { updateOrder } from "../../firebase";
 import React, { useState } from 'react'
+import Time  from "../time/timeorder";
 
 const Kitchen = (props) => {
-    console.log(props.order)
-    
- 
+    console.log(props.order) 
      
   return (
      
@@ -20,8 +19,11 @@ const Kitchen = (props) => {
           ))}
           
              <p className="TOTAL">{` Total $ ${props.order.total}`}</p>
-             <p className="time">{`Time ${props.order.date}`}</p>
-          
+             {/* <p className="time">{`Time ${}</p> */}
+             {
+               <Time time={props.order.date}/> 
+             }
+             
            
             
         </div>

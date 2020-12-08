@@ -1,6 +1,6 @@
 import  React from "react";
 import "../deliver/deliver.css"
-
+import Time from "../time/timeorder"
 
 const DeliverOrders = (props) =>{
    
@@ -14,7 +14,10 @@ const DeliverOrders = (props) =>{
             <h3 className="order-targue">{`${item.quantity} - ${item.name}`}</h3>
           ))}
           <p className="TOTAL">{` Total $ ${props.order.total}`}</p>
-          <p className="time"></p>
+          {/* <p className="time"></p> */}
+          {
+           <Time time={props.order.date}/>
+          }
           
           </div>
           

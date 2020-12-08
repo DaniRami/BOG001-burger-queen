@@ -1,7 +1,7 @@
 import  React from "react";
 import "../done/done.css"
 import { updateDone } from "../../firebase";
- 
+import Time from "../time/timeorder" 
 
 
 
@@ -17,7 +17,10 @@ const DoneOrders = (props) =>{
             <h3 className="order-targue">{`${item.quantity} - ${item.name}`}</h3>
           ))}
            <p className="TOTAL">{` Total $ ${props.order.total}`}</p>
-          <p className="time">{props.hora}</p>
+          {/* <p className="time">{props.hora}</p> */}
+          {
+            <Time time={props.order.date}/>
+          }
           
           </div>
           <button
