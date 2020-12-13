@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import moment  from "moment";
+import "../time/time.css"
 
 const Time = (props) =>{
     const calculateTime = () =>{
@@ -13,15 +14,20 @@ const Time = (props) =>{
     }
     const [secondsOrder,  setSecondsOrder] = useState(calculateTime());     
     useEffect(() =>{
+    const start = props.start
+    if(start === true){
         const timer = setTimeout(() => {
             setSecondsOrder(calculateTime())
         }, 1000);
         return () => clearTimeout(timer)
+    } else if (start === false) {
+        return () =>    setSecondsOrder(false)
+    }  
     })
 
     return(
         <div>
-            <p>{` ${secondsOrder.hours} `} </p>
+            <p className="time">{` ${secondsOrder.hours} `} </p>
         </div>
     )
 }

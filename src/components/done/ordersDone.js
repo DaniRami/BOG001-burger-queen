@@ -19,7 +19,7 @@ const DoneOrders = (props) =>{
            <p className="TOTAL">{` Total $ ${props.order.total}`}</p>
           {/* <p className="time">{props.hora}</p> */}
           {
-            <Time time={props.order.date}/>
+            <Time start={true}  time={props.order.date}/>
           }
           
           </div>

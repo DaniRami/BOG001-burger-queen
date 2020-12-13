@@ -39,8 +39,8 @@ var  firebaseConfig = {
  
   export const createOrder = (order) => db.collection("orders").add(order)
   export const viewOrders = () => db.collection('orders').where('status', '==', 'in progress').orderBy('date', 'desc');
-  export const viewDoneOrders = () => db.collection('orders').where("status", "==", "done");
-  export const viewDelivers = () => db.collection('orders').where("status", "==", "ready");
+  export const viewDoneOrders = () => db.collection('orders').where("status", "==", "done").orderBy('date', 'desc');
+  export const viewDelivers = () => db.collection('orders').where("status", "==", "ready").orderBy('date', 'desc');
 const getData = []
 
 

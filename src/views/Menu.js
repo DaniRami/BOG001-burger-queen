@@ -33,16 +33,7 @@ const Menu = ( ) => {
     status: 'in progress'
   }
 
-const ValidateHoursMin = (startTime, endTime) => {
-    return endTime != "" ? startTime > endTime ? endTime : startTime : startTime
-}
-const ValidateHoursMax = (startTime, endTime) => {
-    return startTime != "" ? endTime < startTime ? startTime : endTime : endTime
-}
-const CalculateTime = (startTime, endTime) => {
-    return `${(moment.duration(moment(`10/10/2020 ${endTime}`).diff(moment(`10/10/2020 ${startTime}`))))._data.hours} h: ${(moment.duration(moment(`10/10/2020 ${endTime}`).diff(moment(`10/10/2020 ${startTime}`))))._data.minutes} m`
-}
-
+ 
   const [order, setOrder] = useState(initialValues)
 
   const setTable = (table) => {
